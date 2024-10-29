@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{FA1A5799-2085-F644-EBD6-3CD9E62F2E71}</ProjectGuid>
+    <ProjectGuid>{29A89558-08ED-07C1-875A-92F75A5BFDF9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -56,13 +56,16 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AlignedGames\Polygonal Foliage Asset Package\Scripts\Utility\FlyCameraBehaviour.cs" />
-    <Compile Include="Assets\Scripts\FreeCamera.cs" />
     <Compile Include="Assets\Custom test assets\Tool_swapper.cs" />
+    <Compile Include="Assets\AlignedGames\Polygonal Foliage Asset Package\Scripts\Utility\FlyCameraBehaviour.cs" />
     <Compile Include="Assets\Custom test assets\Cloud_controller.cs" />
     <Compile Include="Assets\Custom test assets\Raindrop_script.cs" />
-    <Compile Include="Assets\Custom test assets\Boulder_spawner.cs" />
-    <Compile Include="Assets\Custom test assets\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\TZ\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\FreeCamera.cs" />
+    <Compile Include="Assets\Scripts\MBLogger.cs" />
+    <Compile Include="Assets\Scripts\Boulder_spawner.cs" />
+    <Compile Include="Assets\Scripts\LevelController.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AlignedGames\Polygonal Foliage Asset Package\Shaders\Cloud.shader" />
