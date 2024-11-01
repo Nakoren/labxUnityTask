@@ -5,26 +5,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Transform stick;
-    private Vector3 baseRotation;
-    public float maxAngle = 30;
+    [SerializeField]
+    StickController stickController;
     // Update is called once per frame
 
-    private void Start()
+    private void Awake()
     {
-        baseRotation = stick.localEulerAngles;
+        Application.targetFrameRate = 60;
     }
-    void Update()
+
+
+    void FixedUpdate()
     {
-        var angle = stick.localEulerAngles;
-        if (Input.GetMouseButton(0))
-        {
-            angle.x =  baseRotation.y+maxAngle;
-        }
-        else
-        {
-            angle.x = baseRotation.y-maxAngle;
-        }
-        stick.localEulerAngles = angle;
+        stickController.UpdateDirection(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0));
     }
 }

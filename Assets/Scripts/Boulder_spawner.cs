@@ -16,7 +16,6 @@ public class Boulder_spawner : MonoBehaviour
     }
     public void Spawn()
     {
-
         Vector3 position = gameObject.transform.position;
         position.y = position.y+5;
         Instantiate(BoulderEntity, position, Quaternion.identity);

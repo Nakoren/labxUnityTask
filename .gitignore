@@ -6,3 +6,4 @@ HelloWorld.sln
 .vsconfig
 *.sln
 .vs
+obj

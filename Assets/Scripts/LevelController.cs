@@ -14,7 +14,7 @@ public class LevelController : MonoBehaviour
     {
         m_timer = 0;
     }
-    private void update()
+    private void Update()
     {
         m_timer += Time.deltaTime;
         if(m_timer > m_delay)
