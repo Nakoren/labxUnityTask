@@ -9,11 +9,17 @@ public class LevelController : MonoBehaviour
     private float m_timer;
     [SerializeField]
     private float m_delay = 2f;
+    [SerializeField]
+    private int max_hp = 3;
+    private int currentScore=0;
+    private int currentLife;
 
     public void OnEnable()
     {
         m_timer = 0;
+        currentLife = max_hp;
     }
+    int Score {  get { return currentScore; } }
     private void Update()
     {
         m_timer += Time.deltaTime;
