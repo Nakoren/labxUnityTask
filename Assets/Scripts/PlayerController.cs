@@ -19,4 +19,5 @@ public class PlayerController : MonoBehaviour
     {
         stickController.UpdateDirection(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0));
     }
+
 }

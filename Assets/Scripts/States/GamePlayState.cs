@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class GamePlayState : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public PlayerController playerController;
+    public LevelController levelController;
+    public GameObject rootUI;
+    private void OnEnable()
+    {
+        
+    }
+    private void OnDisable()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

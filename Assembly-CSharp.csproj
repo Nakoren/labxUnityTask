@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\States\MainMenuState.cs" />
     <Compile Include="Assets\Scripts\States\GameOverState.cs" />
     <Compile Include="Assets\Scripts\States\GamePlayState.cs" />
+    <Compile Include="Assets\Scripts\GameInstance.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
