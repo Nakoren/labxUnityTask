@@ -6,7 +6,6 @@ using UnityEngine;
 public class StickController : MonoBehaviour
 {
     public StickScript stick;
-    private Vector3 baseRotation;
     public float maxAngle = 30;
     public float speed = 1f * 200;
 
