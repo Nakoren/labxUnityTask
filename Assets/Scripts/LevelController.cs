@@ -19,7 +19,7 @@ public class LevelController : MonoBehaviour
         m_timer = 0;
         currentLife = max_hp;
     }
-    int Score {  get { return currentScore; } }
+    public int Score { get { return currentScore; } }
     private void Update()
     {
         m_timer += Time.deltaTime;

@@ -17,9 +17,12 @@ public class GamePlayState : MonoBehaviour
         rootUI.SetActive(false);
     }
 
-    private void onLose()
+    public void Lose()
     {
-
+        gameOverState.gameObject.SetActive(true);
+        int score = levelController.Score;
+        GameInstance.bestScore = score;
+        gameObject.SetActive(false);
     }
 
     
