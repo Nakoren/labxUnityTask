@@ -24,13 +24,13 @@ public class StickScript : MonoBehaviour
         var angle = transform.localEulerAngles;
         if (m_isDown)
         {
-            angle.x = Mathf.MoveTowardsAngle(angle.x, -maxAngle, speed * Time.fixedDeltaTime);  
+            angle.z = Mathf.MoveTowardsAngle(angle.z, -maxAngle, speed * Time.fixedDeltaTime);  
         }
         else
         {
-            angle.x = Mathf.MoveTowardsAngle(angle.x, +maxAngle, speed * Time.fixedDeltaTime);
+            angle.z = Mathf.MoveTowardsAngle(angle.z, +maxAngle, speed * Time.fixedDeltaTime);
         }
-
+        
         Vector3 currentFramePosition = transform.position;
         moveDirection = (currentFramePosition - prevFramePosition).normalized;
         prevFramePosition = currentFramePosition;
@@ -48,6 +48,4 @@ public class StickScript : MonoBehaviour
             //здесь вызвать метод у камня, чтобы он пометился
         }
     }
-
-
 }
