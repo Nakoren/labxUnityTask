@@ -10,9 +10,6 @@ namespace TZ
         [SerializeField]
         private Boulder_spawner bSpawner;
         [SerializeField]
-        private Cloud_controller cController;
-        [SerializeField]
-        private Tool_swapper tSwapper;
 
         // Update is called once per frame
         void Update()
@@ -20,15 +17,6 @@ namespace TZ
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 bSpawner.Spawn();
-            }
-
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                cController.ChangeMoveTarget();
-            }
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                tSwapper.Swap();
             }
         }
     }

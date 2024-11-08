@@ -21,15 +21,14 @@ public class StickScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         var angle = transform.localEulerAngles;
         if (m_isDown)
         {
-            angle.z = Mathf.MoveTowardsAngle(angle.z, -maxAngle, speed * Time.fixedDeltaTime);
+            angle.x = Mathf.MoveTowardsAngle(angle.x, -maxAngle, speed * Time.fixedDeltaTime);  
         }
         else
         {
-            angle.z = Mathf.MoveTowardsAngle(angle.z, +maxAngle, speed * Time.fixedDeltaTime);
+            angle.x = Mathf.MoveTowardsAngle(angle.x, +maxAngle, speed * Time.fixedDeltaTime);
         }
 
         Vector3 currentFramePosition = transform.position;
