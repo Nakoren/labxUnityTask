@@ -40,7 +40,7 @@ public class StickScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        
+        Debug.Log("Collided");
         if (other.gameObject.TryGetComponent<StoneScript>(out var stone)) {
             var contact = other.contacts[0];
             Vector3 impulseDirection = -contact.normal + moveDirection;

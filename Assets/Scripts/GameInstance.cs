@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class GameInstance : MonoBehaviour
 {
-    static public int bestScore;
+    static public int bestScore=0;
 }
