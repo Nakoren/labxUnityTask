@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameOverState : MonoBehaviour
 {
     public GameObject mainMenuState;
     public GameObject gamePlayState;
+    public TextMeshProUGUI scoreText;
     public GameObject rootUI;
     private void OnEnable()
     {
         rootUI.SetActive(true);
+        scoreText.text= $"Score: {GameInstance.lastScore.ToString()}";
     }
     private void OnDisable()
     {

@@ -8,16 +8,11 @@ public class Boulder_spawner : MonoBehaviour
 {
     public GameObject BoulderEntity;
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void Spawn()
+    public GameObject Spawn()
     {
         Vector3 position = gameObject.transform.position;
         position.y = position.y+5;
-        Instantiate(BoulderEntity, position, Quaternion.identity);
+        GameObject stone = Instantiate(BoulderEntity, position, Quaternion.identity);
+        return stone;
     }
 }

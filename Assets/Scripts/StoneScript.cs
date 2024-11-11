@@ -1,22 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StoneScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool isMarked = false;
 
-    // Update is called once per frame
-    void Update()
+    public event Action onCollisionStone;
+
+    private void OnCollisionEnter(Collision other)
     {
-        
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        
+        if (other.gameObject.GetComponent<StoneScript>())
+        {
+            if (!isMarked)
+            {
+                onCollisionStone?.Invoke();
+                onCollisionStone = null;
+            }
+        }
+        if (other.gameObject.tag == "Ground")
+        {
+            isMarked = true;
+        }
     }
 }

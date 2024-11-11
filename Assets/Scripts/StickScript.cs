@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +8,13 @@ public class StickScript : MonoBehaviour
     public float maxAngle = 30;
     public float speed = 1f * 200;
     public float pushForce = 10;
+    public GameObject headGO;
     private Vector3 prevFramePosition = Vector3.zero;
     private Vector3 moveDirection = Vector3.zero;
     private bool m_isDown = false;
+
+    public event Action onCollisionStone;
+
     public void Down()
     {
         m_isDown = false;
@@ -31,7 +36,7 @@ public class StickScript : MonoBehaviour
             angle.z = Mathf.MoveTowardsAngle(angle.z, +maxAngle, speed * Time.fixedDeltaTime);
         }
         
-        Vector3 currentFramePosition = transform.position;
+        Vector3 currentFramePosition = headGO.transform.position;
         moveDirection = (currentFramePosition - prevFramePosition).normalized;
         prevFramePosition = currentFramePosition;
 
@@ -40,12 +45,15 @@ public class StickScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Collided");
-        if (other.gameObject.TryGetComponent<StoneScript>(out var stone)) {
+        if (other.gameObject.TryGetComponent<StoneScript>(out var stone)&&(other.rigidbody)) {
             var contact = other.contacts[0];
-            Vector3 impulseDirection = -contact.normal + moveDirection;
-            other.rigidbody.AddForce(impulseDirection, ForceMode.Impulse);
-            //здесь вызвать метод у камня, чтобы он пометился
+            Vector3 impulseDirection = moveDirection;
+            other.rigidbody.AddForce(impulseDirection*pushForce, ForceMode.Impulse);
+            if (!stone.isMarked)
+            {
+                stone.isMarked = true;
+                onCollisionStone?.Invoke();
+            }
         }
     }
 }
