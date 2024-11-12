@@ -11,6 +11,7 @@ public class StoneScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        Debug.Log(other.gameObject);
         if (other.gameObject.GetComponent<StoneScript>())
         {
             if (!isMarked)

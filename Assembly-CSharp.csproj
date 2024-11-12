@@ -56,18 +56,24 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Resources\LevelSettings.cs" />
     <Compile Include="Assets\Scripts\LevelController.cs" />
     <Compile Include="Assets\Custom test assets\Tool_swapper.cs" />
     <Compile Include="Assets\Scripts\BombScript.cs" />
     <Compile Include="Assets\Scripts\StickScript.cs" />
     <Compile Include="Assets\Scripts\StoneScript.cs" />
     <Compile Include="Assets\AlignedGames\Polygonal Foliage Asset Package\Scripts\Utility\FlyCameraBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Sounds\HitSoundScript.cs" />
     <Compile Include="Assets\Scripts\GameInstance.cs" />
     <Compile Include="Assets\Scripts\States\GamePlayState.cs" />
     <Compile Include="Assets\Scripts\StoneSpawner.cs" />
     <Compile Include="Assets\Custom test assets\Cloud_controller.cs" />
     <Compile Include="Assets\Scripts\States\MainMenuState.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Resources\SoundResources.cs" />
+    <Compile Include="Assets\Resources\CameraPositions.cs" />
+    <Compile Include="Assets\Scripts\Camera\SmoothCamera.cs" />
     <Compile Include="Assets\Custom test assets\Raindrop_script.cs" />
     <Compile Include="Assets\Scripts\MBLogger.cs" />
     <Compile Include="Assets\Scripts\TZ\PlayerController.cs" />
@@ -75,10 +81,6 @@
     <Compile Include="Assets\Scripts\StickController.cs" />
     <Compile Include="Assets\Scripts\States\GameOverState.cs" />
     <Compile Include="Assets\Scripts\FreeCamera.cs" />
-    <Compile Include="Assets\Scripts\SmoothCamera.cs" />
-    <Compile Include="Assets\Scripts\CameraController.cs" />
-    <Compile Include="Assets\Resources\CameraPositions.cs" />
-    <Compile Include="Assets\Resources\LevelSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -11,6 +11,8 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     public StoneSpawner stoneSpawner;
 
+    public HitSoundScript soundPlayer;
+
     public BombSpawner bombSpawner;
 
     public StickScript stick;
@@ -18,6 +20,8 @@ public class LevelController : MonoBehaviour
     private float m_timer;
 
     public LevelSettings levelSettings;
+
+    public SoundResources sounds;
 
     private int currentScore=0;
 
@@ -30,6 +34,7 @@ public class LevelController : MonoBehaviour
     public event Action<int> onScoreInc;
 
     public event Action<int> onLifeChange;
+
 
 
     public void OnEnable()
@@ -102,13 +107,15 @@ public class LevelController : MonoBehaviour
     }
     private void OnCollisionStick()
     {
+        soundPlayer.PlaySound(sounds.stoneHit);
         currentScore++;
-        onScoreInc?.Invoke(currentScore);
+        onScoreInc.Invoke(currentScore);
     }
 
     private void OnCollisionBomb()
     {
         Debug.Log("OnCollisionBomb");
+        soundPlayer.PlaySound(sounds.explosion);
         currentLife -= levelSettings.bombHpLoss;
         if (currentLife <= 0)
         {
@@ -127,6 +134,7 @@ public class LevelController : MonoBehaviour
         if (Score > GameInstance.bestScore)
         {
             GameInstance.bestScore = Score;
+            GameInstance.NewBest = true;
         }
         GameInstance.lastScore = Score;
         Debug.Log($"Last score setted to {GameInstance.lastScore}");

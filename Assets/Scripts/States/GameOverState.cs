@@ -9,15 +9,18 @@ public class GameOverState : MonoBehaviour
     public GameObject gamePlayState;
     public TextMeshProUGUI scoreText;
     public GameObject rootUI;
+    public GameObject recordUI;
 
     public CameraController cameraController;
     private void OnEnable()
     {
         rootUI.SetActive(true);
-        scoreText.text= $"Score: {GameInstance.lastScore.ToString()}";
+        scoreText.text= $"Score:\n{GameInstance.lastScore.ToString()}";
+        recordUI.SetActive(GameInstance.NewBest);
     }
     private void OnDisable()
     {
+        recordUI.SetActive(false);
         rootUI.SetActive(false);
     }
     public void ToMenu()
