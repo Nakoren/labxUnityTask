@@ -90,7 +90,7 @@ public class LevelController : MonoBehaviour
     private void OnCollisionStone()
     {
         Debug.Log("OnCollisionStone");
-        currentLife -= 1;
+        currentLife -= levelSettings.stoneHpLoss;
         if(currentLife <= 0)
         {
             Lose();
@@ -109,7 +109,7 @@ public class LevelController : MonoBehaviour
     private void OnCollisionBomb()
     {
         Debug.Log("OnCollisionBomb");
-        currentLife -= 1;
+        currentLife -= levelSettings.bombHpLoss;
         if (currentLife <= 0)
         {
             Lose();

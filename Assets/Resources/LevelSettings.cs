@@ -8,4 +8,6 @@ public class LevelSettings : ScriptableObject
     public int spawnDelay;
     public int maxHp;
     public int bombChance;
+    public int bombHpLoss;
+    public int stoneHpLoss;
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   spawnDelay: 2
-  gravityMultiplier: 1
   maxHp: 3
   bombChance: 30
+  bombHpLoss: 2
+  stoneHpLoss: 1
