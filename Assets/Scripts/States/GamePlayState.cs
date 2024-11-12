@@ -12,14 +12,19 @@ public class GamePlayState : MonoBehaviour
     public TextMeshProUGUI lifeText;
     public GameObject rootUI;
 
+    public CameraController cameraController;
+
     private void OnEnable()
     {
+
         levelController.gameObject.SetActive(true);
         playerController.gameObject.SetActive(true);
         rootUI.SetActive(true);
 
+        cameraController.MoveToGamePlay();
+
         scoreText.text = $"Score: 0";
-        lifeText.text = $"HP: {levelController.max_hp}";
+        lifeText.text = $"HP: {levelController.levelSettings.maxHp}";
         levelController.onLose += Lose;
         levelController.onLifeChange += LifeChange;
         levelController.onScoreInc += ScoreInc;

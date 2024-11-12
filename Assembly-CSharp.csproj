@@ -75,6 +75,10 @@
     <Compile Include="Assets\Scripts\StickController.cs" />
     <Compile Include="Assets\Scripts\States\GameOverState.cs" />
     <Compile Include="Assets\Scripts\FreeCamera.cs" />
+    <Compile Include="Assets\Scripts\SmoothCamera.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Resources\CameraPositions.cs" />
+    <Compile Include="Assets\Resources\LevelSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
