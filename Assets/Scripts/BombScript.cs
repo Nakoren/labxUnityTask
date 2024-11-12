@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class BombScript : MonoBehaviour
 {
-
     public event Action onCollisionBomb;
 
     private void OnCollisionEnter(Collision other)
@@ -13,6 +12,7 @@ public class BombScript : MonoBehaviour
         if (other.gameObject.GetComponent<StickScript>())
         {
             onCollisionBomb?.Invoke();
+            onCollisionBomb = null;
         }
         Destroy(this.gameObject);
     }
