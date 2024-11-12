@@ -16,11 +16,15 @@ public class StoneScript : MonoBehaviour
             if (!isMarked)
             {
                 onCollisionStone?.Invoke();
-                onCollisionStone = null;
             }
+            isMarked = true;
         }
         if (other.gameObject.tag == "Ground")
         {
+            if (!isMarked)
+            {
+                onCollisionStone?.Invoke();
+            }
             isMarked = true;
         }
     }

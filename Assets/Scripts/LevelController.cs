@@ -17,14 +17,7 @@ public class LevelController : MonoBehaviour
 
     private float m_timer;
 
-    [SerializeField]
-    private float m_delay = 2f;
-
-    [SerializeField]
-    public int max_hp = 3;
-
-    [SerializeField]
-    public int bombChance = 30;
+    public LevelSettings levelSettings;
 
     private int currentScore=0;
 
@@ -42,10 +35,9 @@ public class LevelController : MonoBehaviour
     public void OnEnable()
     {
         currentScore = 0; 
-        currentLife = 3;
         Debug.Log("Enabled levCont");
         m_timer = 0;
-        currentLife = max_hp;
+        currentLife = levelSettings.maxHp;
         stick.onCollisionStone += OnCollisionStick;
     }
 
@@ -67,20 +59,20 @@ public class LevelController : MonoBehaviour
     private void Update()
     {
         m_timer += Time.deltaTime;
-        if(m_timer > m_delay)
+        if(m_timer > levelSettings.spawnDelay)
         {
             int randomNumber = UnityEngine.Random.Range(0, 100);
-            Debug.Log(randomNumber);
-            if (randomNumber < bombChance)
+            //Debug.Log(randomNumber);
+            if (randomNumber < levelSettings.bombChance)
             {
-                Debug.Log("Spawned bomb");
+                //Debug.Log("Spawned bomb");
                 BombScript newBomb = bombSpawner.Spawn().GetComponent<BombScript>();
                 newBomb.onCollisionBomb += OnCollisionBomb;
                 StartCoroutine(DestroyBomb(newBomb.gameObject));
             }
             else
             {
-                Debug.Log("Spawned stone");
+                //Debug.Log("Spawned stone");
                 StoneScript newStone = stoneSpawner.Spawn().GetComponent<StoneScript>();
                 newStone.onCollisionStone += OnCollisionStone;
                 stones.Add(newStone);
@@ -97,6 +89,7 @@ public class LevelController : MonoBehaviour
 
     private void OnCollisionStone()
     {
+        Debug.Log("OnCollisionStone");
         currentLife -= 1;
         if(currentLife <= 0)
         {
@@ -115,6 +108,7 @@ public class LevelController : MonoBehaviour
 
     private void OnCollisionBomb()
     {
+        Debug.Log("OnCollisionBomb");
         currentLife -= 1;
         if (currentLife <= 0)
         {
