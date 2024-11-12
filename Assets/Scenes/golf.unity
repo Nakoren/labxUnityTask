@@ -2186,7 +2186,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223401775}
   m_LocalRotation: {x: -0.10415156, y: 0.4899574, z: -0.05909507, w: -0.86348253}
-  m_LocalPosition: {x: 0.281, y: 0.426, z: 1.154}
+  m_LocalPosition: {x: -0.18, y: 0.332, z: 1.132}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4934,7 +4934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stick: {fileID: 652171742}
-  maxAngle: 40
+  maxAngle: 50
   speed: 200
 --- !u!1001 &598942080
 PrefabInstance:
