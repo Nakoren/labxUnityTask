@@ -9,6 +9,8 @@ public class GameOverState : MonoBehaviour
     public GameObject gamePlayState;
     public TextMeshProUGUI scoreText;
     public GameObject rootUI;
+
+    public CameraController cameraController;
     private void OnEnable()
     {
         rootUI.SetActive(true);

@@ -11,9 +11,12 @@ public class MainMenuState : MonoBehaviour
     public Button startButton;
     public GameObject rootUI;
 
+    public CameraController cameraController;
+
     private void OnEnable()
     {
         rootUI.SetActive(true);
+        cameraController.MoveToMenu();
         scoreText.text = $"Best score: {GameInstance.bestScore}";
     }
 

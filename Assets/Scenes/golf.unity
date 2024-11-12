@@ -783,6 +783,7 @@ MonoBehaviour:
   scoreText: {fileID: 1820062898}
   lifeText: {fileID: 601166265}
   rootUI: {fileID: 963041497}
+  cameraController: {fileID: 1864899650}
 --- !u!1001 &80761771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2218,6 +2219,7 @@ MonoBehaviour:
   m_delay: 2
   max_hp: 3
   bombChance: 30
+  levelSettings: {fileID: 11400000, guid: 566297bc6f495fb449e025a704a95cfb, type: 2}
 --- !u!4 &241768980
 Transform:
   m_ObjectHideFlags: 0
@@ -6144,8 +6146,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674816976}
-  m_LocalRotation: {x: 0.008985907, y: -0.02670006, z: 0.048622057, w: 0.9984199}
-  m_LocalPosition: {x: 0.034061395, y: 0.10367412, z: 0.0039100796}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6270,6 +6272,7 @@ MonoBehaviour:
   gamePlayState: {fileID: 66259057}
   scoreText: {fileID: 1146618638}
   rootUI: {fileID: 1239497388}
+  cameraController: {fileID: 1864899650}
 --- !u!1001 &717377453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8678,6 +8681,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 965809337}
+  - component: {fileID: 965809338}
   m_Layer: 0
   m_Name: FreeCamera
   m_TagString: Untagged
@@ -8692,15 +8696,29 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965809334}
-  m_LocalRotation: {x: 0.18534075, y: -0.6614133, z: 0.17367513, w: 0.70570403}
-  m_LocalPosition: {x: 64.69042, y: 24.350527, z: 53.31415}
+  m_LocalRotation: {x: 0.013310175, y: 0.979236, z: -0.19034413, w: 0.06847494}
+  m_LocalPosition: {x: 60, y: 30, z: 55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 674816979}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: -93.144, z: 0}
+  m_LocalEulerAnglesHint: {x: 22, y: 172, z: 0}
+--- !u!114 &965809338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965809334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86aa535a41df21047a988faea85df62a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0.05
+  rotationSpeed: 0.05
 --- !u!1001 &968424725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11111,6 +11129,7 @@ MonoBehaviour:
   scoreText: {fileID: 486801863}
   startButton: {fileID: 882492372}
   rootUI: {fileID: 168518961}
+  cameraController: {fileID: 1864899650}
 --- !u!1001 &1257980163
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15740,6 +15759,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4202130902894980, guid: 6910e2407cd484a42a0c2598114751a0, type: 3}
   m_PrefabInstance: {fileID: 1861009611}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1864899649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1864899651}
+  - component: {fileID: 1864899650}
+  m_Layer: 0
+  m_Name: CameraController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1864899650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864899649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873747695479b3b4fb7533e0ee0bc575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothCamera: {fileID: 965809338}
+  cameraPositions: {fileID: 11400000, guid: 3f8f2e207d4b0e8418cd4b8e92e737fe, type: 2}
+--- !u!4 &1864899651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864899649}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 60.34615, y: 22.495693, z: 52.362793}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1868782965
 PrefabInstance:
   m_ObjectHideFlags: 0
