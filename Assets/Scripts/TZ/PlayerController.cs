@@ -8,7 +8,7 @@ namespace TZ
     {
 
         [SerializeField]
-        private Boulder_spawner bSpawner;
+        private StoneSpawner bSpawner;
         [SerializeField]
 
         // Update is called once per frame

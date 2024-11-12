@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        stickController.UpdateDirection(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0));
+        //stickController.UpdateDirection(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0));
     }
 
     public void PointerUp()

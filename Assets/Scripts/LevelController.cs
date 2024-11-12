@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +9,9 @@ using UnityEngine.UIElements;
 public class LevelController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Boulder_spawner spawner;
+    public StoneSpawner stoneSpawner;
+
+    public BombSpawner bombSpawner;
 
     public StickScript stick;
 
@@ -19,6 +22,9 @@ public class LevelController : MonoBehaviour
 
     [SerializeField]
     public int max_hp = 3;
+
+    [SerializeField]
+    public int bombChance = 30;
 
     private int currentScore=0;
 
@@ -63,16 +69,36 @@ public class LevelController : MonoBehaviour
         m_timer += Time.deltaTime;
         if(m_timer > m_delay)
         {
-            StoneScript newStone = spawner.Spawn().GetComponent<StoneScript>();
-            newStone.onCollisionStone += OnCollisionStone;
-            stones.Add(newStone);
+            int randomNumber = UnityEngine.Random.Range(0, 100);
+            Debug.Log(randomNumber);
+            if (randomNumber < bombChance)
+            {
+                Debug.Log("Spawned bomb");
+                BombScript newBomb = bombSpawner.Spawn().GetComponent<BombScript>();
+                newBomb.onCollisionBomb += OnCollisionBomb;
+                StartCoroutine(DestroyBomb(newBomb.gameObject));
+            }
+            else
+            {
+                Debug.Log("Spawned stone");
+                StoneScript newStone = stoneSpawner.Spawn().GetComponent<StoneScript>();
+                newStone.onCollisionStone += OnCollisionStone;
+                stones.Add(newStone);
+            }
             m_timer = 0;
         }
     }
+
+    private IEnumerator DestroyBomb(GameObject bomb)
+    {
+        yield return new WaitForSeconds(3);
+        Destroy(bomb);
+    }
+
     private void OnCollisionStone()
     {
         currentLife -= 1;
-        if(currentLife < 0)
+        if(currentLife <= 0)
         {
             Lose();
         }
@@ -85,11 +111,24 @@ public class LevelController : MonoBehaviour
     {
         currentScore++;
         onScoreInc?.Invoke(currentScore);
-        Debug.Log(currentScore);
+    }
+
+    private void OnCollisionBomb()
+    {
+        currentLife -= 1;
+        if (currentLife <= 0)
+        {
+            Lose();
+        }
+        else
+        {
+            onLifeChange.Invoke(currentLife);
+        }
     }
 
     private void Lose()
     {
+        stick.Down();
         Debug.Log("Game over");
         if (Score > GameInstance.bestScore)
         {
@@ -97,6 +136,6 @@ public class LevelController : MonoBehaviour
         }
         GameInstance.lastScore = Score;
         Debug.Log($"Last score setted to {GameInstance.lastScore}");
-        onLose.Invoke();
+        onLose?.Invoke();
     }
 }

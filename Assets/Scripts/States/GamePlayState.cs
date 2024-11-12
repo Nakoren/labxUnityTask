@@ -39,13 +39,7 @@ public class GamePlayState : MonoBehaviour
 
     private void Lose()
     {
-        gameOverState.gameObject.SetActive(true);
-        int score = levelController.Score;
-        if (score > GameInstance.bestScore)
-        {
-            GameInstance.bestScore = score;
-        }
-        GameInstance.lastScore = score;
+        gameOverState.gameObject.SetActive(true); 
         gameObject.SetActive(false);
     }
 
